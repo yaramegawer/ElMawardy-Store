@@ -8,7 +8,7 @@ import {
   Shop,
   SingleProduct,
 } from "./pages";
-import { checkoutAction, searchAction } from "./actions/index";
+import { checkoutAction } from "./actions/index";
 import { shopCategoryLoader } from "./pages/Shop";
 
 const router = createBrowserRouter([

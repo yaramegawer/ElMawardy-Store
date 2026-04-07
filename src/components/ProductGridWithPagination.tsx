@@ -1,4 +1,4 @@
-import React, { ReactElement, useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { productApi, Product, ProductsResponse } from "../services/productApi";
 import { useAppDispatch, useAppSelector } from "../hooks";
 import {
@@ -25,7 +25,7 @@ const ProductGridWithPagination = ({
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [pagination, setPagination] = useState<ProductsResponse['pagination'] | null>(null);
-  const [currentPage, setCurrentPage] = useState(page || 1);
+  const [currentPage] = useState(page || 1);
   const { totalProducts } = useAppSelector((state) => state.shop);
   const dispatch = useAppDispatch();
 
@@ -49,7 +49,7 @@ const ProductGridWithPagination = ({
         } else if (sort === "price-desc") {
           filteredProducts = [...filteredProducts].sort((a, b) => b.price - a.price);
         } else if (sort === "popularity") {
-          filteredProducts = [...filteredProducts].sort((a, b) => 0 - 0); // No popularity field, keep original order
+          filteredProducts = [...filteredProducts].sort(() => 0 - 0); // No popularity field, keep original order
         }
 
         // Update pagination info
@@ -88,7 +88,6 @@ const ProductGridWithPagination = ({
       <ShowingPagination 
         page={currentPage} 
         category={category || ""} 
-        setCurrentPage={setCurrentPage}
         pagination={pagination}
       />
     </>

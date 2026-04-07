@@ -4,11 +4,9 @@ import { nanoid } from "nanoid";
 import { Product } from "../typings";
 
 const ProductGrid = ({ 
-  products, 
-  pagination 
+  products 
 }: { 
   products?: Product[]; 
-  pagination?: any 
 }) => {
   return (
     <div

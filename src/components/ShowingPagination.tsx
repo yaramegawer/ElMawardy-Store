@@ -7,12 +7,10 @@ import { ProductsResponse } from "../services/productApi";
 const ShowingPagination = ({
   page,
   category,
-  setCurrentPage,
   pagination,
 }: {
   page: number;
   category: string;
-  setCurrentPage: (page: number) => void;
   pagination?: ProductsResponse['pagination'] | null;
 }) => {
   const { totalProducts, showingProducts } = useAppSelector(state => state.shop);
@@ -20,7 +18,6 @@ const ShowingPagination = ({
 
   const handleLoadMore = () => {
     if (pagination?.hasNextPage) {
-      setCurrentPage(page + 1);
       const basePath = category ? `/shop/${category}` : '/shop';
       navigate(`${basePath}?page=${page + 1}`);
     }

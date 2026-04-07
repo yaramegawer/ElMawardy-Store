@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const ShopPageContent = ({ category, page, season} : { category: string; page: number; season?: string; }) => {
   const [sortCriteria, setSortCriteria] = useState<string>("");
-  const [ currentPage, setCurrentPage ] = useState(page);
+  const [currentPage] = useState(page);
 
   return (
     <>
