@@ -15,6 +15,7 @@ const ProductGridWithPagination = ({
   season,
   page,
   limit,
+  onPageChange,
 }: {
   searchQuery?: string;
   sortCriteria?: string;
@@ -22,10 +23,11 @@ const ProductGridWithPagination = ({
   season?: string;
   page?: number;
   limit?: number;
+  onPageChange?: (page: number) => void;
 }) => {
   const [products, setProducts] = useState<Product[]>([]);
   const [pagination, setPagination] = useState<ProductsResponse['pagination'] | null>(null);
-  const [currentPage] = useState(page || 1);
+  const [currentPage, setCurrentPage] = useState(page || 1);
   const { totalProducts } = useAppSelector((state) => state.shop);
   const dispatch = useAppDispatch();
 
@@ -82,6 +84,18 @@ const ProductGridWithPagination = ({
     getProducts(searchQuery || "", sortCriteria || "", currentPage);
   }, [searchQuery, sortCriteria, currentPage, getProducts]);
 
+  // Update page when onPageChange is called
+  useEffect(() => {
+    if (onPageChange && page !== undefined) {
+      onPageChange(currentPage);
+    }
+  }, [currentPage, onPageChange, page]);
+
+  // Handle page changes from pagination controls
+  const handlePageChange = (newPage: number) => {
+    setCurrentPage(newPage);
+  };
+
   return (
     <>
       <ProductGrid products={products} />
@@ -89,6 +103,7 @@ const ProductGridWithPagination = ({
         page={currentPage} 
         category={category || ""} 
         pagination={pagination}
+        onPageChange={handlePageChange}
       />
     </>
   );
