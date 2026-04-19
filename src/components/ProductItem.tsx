@@ -25,7 +25,7 @@ const ProductItem = ({
   const originalPrice = hasDiscount ? price / (1 - discount / 100) : price;
 
   return (
-    <div className="w-[400px] flex flex-col gap-2 justify-center md:max-lg:w-[350px] max-md:w-[48%] max-sm:w-[48%] max-[400px]:w-full">
+    <div className="w-[400px] flex flex-col gap-2 justify-center md:max-lg:w-[350px] max-md:w-[48%] max-sm:w-[48%] max-[400px]:w-[48%]">
       <Link
         to={`/product/${id}`}
         className="w-full h-[300px] max-md:h-[200px] overflow-hidden relative"
