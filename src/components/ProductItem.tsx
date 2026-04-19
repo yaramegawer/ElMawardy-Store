@@ -25,7 +25,7 @@ const ProductItem = ({
   const originalPrice = hasDiscount ? price / (1 - discount / 100) : price;
 
   return (
-    <div className="w-[400px] flex flex-col gap-2 justify-center md:max-lg:w-[350px] max-md:w-[48%] max-sm:w-[48%] max-[400px]:w-[48%]">
+    <div className="w-[400px] flex flex-col gap-2 justify-between h-full md:max-lg:w-[350px] max-md:w-[48%] max-sm:w-[48%] max-[400px]:w-[48%]">
       <Link
         to={`/product/${id}`}
         className="w-full h-[300px] max-md:h-[200px] overflow-hidden relative"
@@ -53,7 +53,12 @@ const ProductItem = ({
       </Link>
       <Link
         to={`/product/${id}`}
-        className="text-black text-center text-3xl tracking-[1.02px] max-md:text-2xl"
+        className="text-black text-center text-3xl tracking-[1.02px] max-md:text-2xl h-[2.5rem] flex items-center justify-center overflow-hidden"
+        style={{
+          display: '-webkit-box',
+          WebkitLineClamp: 2,
+          WebkitBoxOrient: 'vertical'
+        }}
       >
         <h2>{title}</h2>
       </Link>
