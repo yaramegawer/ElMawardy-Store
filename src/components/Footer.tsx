@@ -29,7 +29,8 @@ const Footer = () => {
               </div>
             </div>
             
-            
+         
+          </div>
           
           <p className="text-base text-center max-sm:text-sm">All rights reserved ©{new Date().getFullYear()}</p>
         </div>

@@ -6,7 +6,7 @@ const CategoriesSection = () => {
       <h2 className="text-black text-5xl font-normal tracking-[1.56px] max-sm:text-4xl mb-12">
         Our Categories
       </h2>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+      <div className="grid grid-cols-2 gap-10">
         <CategoryItem
           categoryTitle="Pajamas"
           image="3176278b00fe8d9becb68414060387d8.jpg"
