@@ -29,14 +29,7 @@ const Footer = () => {
               </div>
             </div>
             
-            <div className="text-center">
-              <h3 className="text-lg font-medium mb-4">Business Hours</h3>
-              <div className="space-y-1 text-sm text-gray-600">
-                <p>Saturday - Thursday: 10 AM - 09 PM</p>
-                <p>Firday: Closed</p>
-              </div>
-            </div>
-          </div>
+            
           
           <p className="text-base text-center max-sm:text-sm">All rights reserved ©{new Date().getFullYear()}</p>
         </div>
