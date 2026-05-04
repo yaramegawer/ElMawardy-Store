@@ -15,8 +15,10 @@ const Footer = () => {
               <h3 className="text-lg font-medium mb-4">Contact Us</h3>
               <div className="space-y-2 text-sm text-gray-600">
                 
-                <p>Phone: +20 10 92851229</p>
-                <p>WhatsApp: +20 10 92851229</p>
+                <p>Phone: +201092851229</p>
+                <p>Phone: +201033727566</p>
+                <p>WhatsApp: +201092851229</p>
+                <p>WhatsApp: +201033727566</p>
               </div>
             </div>
             
@@ -25,14 +27,22 @@ const Footer = () => {
               <div className="space-y-1 text-sm text-gray-600">
                 <p>Egypt, Giza</p>
                 <p>6th of October city</p>
-                <p>Family mall 1st floor</p>
+                <p>Family mall 2nd floor</p>
               </div>
             </div>
             
-         
+            <div className="text-center">
+              <h3 className="text-lg font-medium mb-4">Opening Hours</h3>
+              <div className="space-y-1 text-sm text-gray-600">
+                <p>Monday - Saturday</p>
+                <p>12:00 PM - 11:00 PM</p>
+                <p className="text-red-600 font-medium">Closed on Sunday</p>
+              </div>
+            </div>
+            
           </div>
           
-          <p className="text-base text-center max-sm:text-sm">All rights reserved ©{new Date().getFullYear()}</p>
+          <p className="text-base text-center max-sm:text-sm">All rights reserved {new Date().getFullYear()}</p>
         </div>
       </footer>
     </>

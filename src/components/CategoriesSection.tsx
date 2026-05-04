@@ -2,11 +2,11 @@ import CategoryItem from "./CategoryItem";
 
 const CategoriesSection = () => {
   return (
-    <div className="max-w-screen-2xl px-20 mx-auto mt-24">
-      <h2 className="text-black text-5xl font-normal tracking-[1.56px] max-sm:text-4xl mb-12">
+    <div className="max-w-screen-2xl px-5 mx-auto mt-24 max-sm:px-3">
+      <h2 className="text-black text-5xl font-normal tracking-[1.56px] max-sm:text-4xl mb-12 text-center">
         Our Categories
       </h2>
-      <div className="grid grid-cols-2 gap-10">
+      <div className="grid grid-cols-2 gap-6 max-sm:gap-4">
         <CategoryItem
           categoryTitle="Pajamas"
           image="3176278b00fe8d9becb68414060387d8.jpg"

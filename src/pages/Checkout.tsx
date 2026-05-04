@@ -57,7 +57,6 @@ const Checkout = () => {
   const [fieldErrors, setFieldErrors] = useState<{
     customerName?: string;
     phone?: string;
-    email?: string;
     address?: string;
     government?: string;
   }>({});
@@ -68,7 +67,6 @@ const Checkout = () => {
       _id: string;
       customerName: string;
       phone: string;
-      email: string;
       address: string;
       government: string;
       shippingCost: number;
@@ -107,10 +105,9 @@ const Checkout = () => {
     
     const customerName = formData.get('customerName') as string;
     const phone = formData.get('phone') as string;
-    const email = formData.get('email') as string;
     const address = formData.get('address') as string;
 
-    console.log('Validating form data:', { customerName, phone, email, address, selectedGovernment });
+    console.log('Validating form data:', { customerName, phone, address, selectedGovernment });
 
     if (!customerName || customerName.trim() === '') {
       errors.customerName = 'Full name is required';
@@ -120,12 +117,6 @@ const Checkout = () => {
       errors.phone = 'Phone number is required';
     } else if (!/^01[0-9]{9}$/.test(phone.replace(/\s/g, ''))) {
       errors.phone = 'Please enter a valid Egyptian phone number (01xxxxxxxxx)';
-    }
-    
-    if (!email || email.trim() === '') {
-      errors.email = 'Email address is required';
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      errors.email = 'Please enter a valid email address';
     }
     
     if (!address || address.trim() === '') {
@@ -184,7 +175,6 @@ const Checkout = () => {
       const customerData = {
         customerName: formData.get('customerName') as string,
         phone: formData.get('phone') as string,
-        email: formData.get('email') as string,
         address: formData.get('address') as string,
         government: selectedGovernment,
         shippingCost: shippingCost,
@@ -270,10 +260,6 @@ const Checkout = () => {
               <div className="flex justify-between">
                 <span className="text-gray-600">Phone:</span>
                 <span className="font-medium">{orderData.data.phone}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-gray-600">Email:</span>
-                <span className="font-medium">{orderData.data.email}</span>
               </div>
               <div className="flex justify-between">
                 <span className="text-gray-600">Address:</span>
@@ -397,25 +383,6 @@ const Checkout = () => {
                   )}
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    className={`block w-full py-2 px-3 border rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-secondaryBrown ${
-                      fieldErrors.email 
-                        ? 'border-red-500 focus:border-red-500' 
-                        : 'border-gray-300 focus:border-secondaryBrown'
-                    }`}
-                  />
-                  {fieldErrors.email && (
-                    <p className="mt-1 text-sm text-red-600">{fieldErrors.email}</p>
-                  )}
-                </div>
 
                 <div>
                   <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-1">

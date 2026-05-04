@@ -5,7 +5,7 @@ import {
   StandardSelectInput,
   ColorPicker,
 } from "../components";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import { addProductToCartWithValidation } from "../features/cart/cartThunks";
 import { useAppDispatch } from "../hooks";
@@ -23,6 +23,7 @@ const SingleProduct = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   // defining default values for input fields
   const [size, setSize] = useState<string>("");
   const [color, setColor] = useState<string>("");
@@ -155,6 +156,7 @@ const SingleProduct = () => {
           toast.success(`Only ${result.quantity} items available. Quantity adjusted to maximum.`);
         }
         toast.success("Product added to cart successfully!");
+        navigate('/cart');
       })
       .catch((error) => {
         toast.error(error);
